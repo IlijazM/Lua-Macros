@@ -1,0 +1,14 @@
+package task;
+
+class KeyType extends Task {
+
+	@Override
+	public String name() {
+		return "keypress";
+	}
+
+	@Override
+	public void execute(String[] args) {
+	}
+
+}

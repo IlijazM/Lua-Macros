@@ -1,0 +1,23 @@
+package task;
+
+class KeyType extends Task {
+
+	@Override
+	public String name() {
+		return "keypress";
+	}
+
+	@Override
+	public void execute(String[] args) {
+		if (args.length < 1) {
+			return;
+		}
+		
+		try {
+			int keycode = Integer.parseInt(s)
+		} catch (NumberFormatException e) {
+			
+		}
+	}
+
+}

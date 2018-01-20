@@ -1,0 +1,19 @@
+package task;
+
+public abstract class Task {
+	
+	public void executeIfMatches(String task) {
+		if (task.split(" ")[0].equalsIgnoreCase(name())) {
+			
+		}
+	}
+	
+	public void execute(String task) {
+		
+	}
+	
+	public abstract String name();
+	
+	public abstract void execute(String[] args);
+	
+}

@@ -4,6 +4,8 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import frame.Frame;
+import macro.Macro;
+import task.Task;
 
 public class Main {
 	
@@ -11,6 +13,9 @@ public class Main {
 	
 	public static void main(String[] args) {
 		setLookAndFeel();
+		
+		Macro.init();
+		Task.init();
 		
 		// init keylisteners from jnativehook
 		

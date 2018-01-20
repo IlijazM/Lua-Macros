@@ -1,5 +1,6 @@
 package main;
 
+import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -8,6 +9,9 @@ import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
 import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
+
+import macro.Macro;
+import task.Task;
 
 @SuppressWarnings("serial")
 public class KeyboardEvent extends AbstractSwingInputAdapter implements NativeKeyListener {
@@ -30,6 +34,10 @@ public class KeyboardEvent extends AbstractSwingInputAdapter implements NativeKe
 	@Override
 	public void nativeKeyPressed(NativeKeyEvent key) {
 		// Macro.Log(key.getKeyCode());
+		
+		if (key.getKeyCode() == 49) {
+			Task.executeMatching("keytype " + KeyEvent.VK_M);
+		}
 	}
 
 	@Override
