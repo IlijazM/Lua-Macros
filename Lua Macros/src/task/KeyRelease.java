@@ -10,14 +10,12 @@ class KeyRelease extends Task {
 	}
 
 	@Override
-	public void execute(String[] args) {
+	public void execute(String[] args, boolean fromKey) {
 		if (args.length < 1) {
 			return;
 		}
 		
 		try {
-			System.out.println(args[0]);
-			
 			int keycode = Integer.parseInt(args[0]);
 			
 			Macro.robot.keyRelease(keycode);

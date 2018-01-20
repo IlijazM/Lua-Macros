@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public abstract class Task {
 	
-	private static ArrayList<Task> tasks;
+	public static ArrayList<Task> tasks;
 	
 	public static void init() {
 		tasks = new ArrayList<>();
@@ -12,26 +12,26 @@ public abstract class Task {
 		tasks.add(new KeyType());
 	}
 	
-	public static void executeMatching(final String task) {
+	public static void executeMatching(final String task, boolean fromKey) {
 		for (int i = 0; i < tasks.size(); i++) {
-			tasks.get(i).executeIfMatches(task);
+			tasks.get(i).executeIfMatches(task, fromKey);
 		}
 	}
 	
-	public void executeIfMatches(final String task) {
+	public void executeIfMatches(final String task, boolean fromKey) {
 		if (task.split(" ")[0].equalsIgnoreCase(name())) {
-			execute(task);
+			execute(task, fromKey);
 		}
 	}
 	
-	public void execute(String task) {
+	public void execute(String task, boolean fromKey) {
 		task = task.substring(task.indexOf(' ') + 1);
 		
-		execute(task.split(" "));
+		execute(task.split(" "), fromKey);
 	}
 	
 	public abstract String name();
 	
-	public abstract void execute(String[] args);
+	public abstract void execute(String[] args, boolean fromKey);
 	
 }
