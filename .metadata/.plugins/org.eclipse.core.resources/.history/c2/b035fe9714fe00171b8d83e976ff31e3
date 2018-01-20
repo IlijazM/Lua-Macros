@@ -1,0 +1,13 @@
+package main;
+
+public class Macro {
+	
+	public static void Log(String ... messages) {
+		for (int i = 0; i < messages.length; i++) {
+			System.out.print(messages[i] + (i != 0 ? ", " : ""));
+		}
+		
+		System.out.println("");
+	}
+	
+}

@@ -1,0 +1,24 @@
+package main;
+
+import org.jnativehook.AbstractSwingInputAdapter;
+
+@SuppressWarnings("serial")
+public class KeyboardEvent extends AbstractSwingInputAdapter {
+	
+	static void init() {
+		try {
+			Logger logger = Logger.getLogger(GlobalScreen.class.getPackage().getName());
+			logger.setLevel(Level.WARNING);
+
+			logger.setUseParentHandlers(false);
+
+			GlobalScreen.registerNativeHook();
+			GlobalScreen.addNativeKeyListener(new HotkeyListener());
+			GlobalScreen.addNativeMouseMotionListener(new HotkeyListener());
+
+		} catch (NativeHookException e) {
+			e.printStackTrace();
+		}
+	}
+	
+}

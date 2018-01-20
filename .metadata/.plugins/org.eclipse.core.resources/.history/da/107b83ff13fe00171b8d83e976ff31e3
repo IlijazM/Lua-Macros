@@ -1,0 +1,8 @@
+package frame;
+
+public class Frame {
+	
+	public Frame() {
+	}
+	
+}

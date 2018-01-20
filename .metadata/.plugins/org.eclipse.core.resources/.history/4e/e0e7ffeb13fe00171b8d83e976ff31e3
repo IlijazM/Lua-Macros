@@ -1,0 +1,45 @@
+package main;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import org.jnativehook.AbstractSwingInputAdapter;
+import org.jnativehook.GlobalScreen;
+import org.jnativehook.NativeHookException;
+import org.jnativehook.keyboard.NativeKeyEvent;
+import org.jnativehook.keyboard.NativeKeyListener;
+import org.jnativehook.mouse.NativeMouseEvent;
+import org.jnativehook.mouse.NativeMouseInputListener;
+
+@SuppressWarnings("serial")
+public class KeyboardEvent extends AbstractSwingInputAdapter implements NativeKeyListener {
+	
+	static void init() {
+		try {
+			Logger logger = Logger.getLogger(GlobalScreen.class.getPackage().getName());
+			logger.setLevel(Level.WARNING);
+
+			logger.setUseParentHandlers(false);
+
+			GlobalScreen.registerNativeHook();
+			GlobalScreen.addNativeKeyListener(new KeyboardEvent());
+
+		} catch (NativeHookException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void nativeKeyPressed(NativeKeyEvent arg0) {
+		
+	}
+
+	@Override
+	public void nativeKeyReleased(NativeKeyEvent arg0) {
+		
+	}
+
+	@Override
+	public void nativeKeyTyped(NativeKeyEvent arg0) {}
+	
+}
