@@ -1,0 +1,9 @@
+package macro;
+
+import java.awt.Robot;
+
+public class MacroEvents {
+	
+	public static Robot robot;
+	
+}

@@ -63,9 +63,27 @@ public class Lua {
 	}
 	
 	public static void runAll(String inputstring) {
+		KeyboardEvent.listen = false;
+		
 		for (int i = 0; i < Macro.macroPaths.size(); i++) {
 			runLua(Macro.macroPaths.get(i), inputstring);
 		}
+		
+		// enable listener
+		
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					Thread.sleep(10);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+				KeyboardEvent.listen = true;
+			}
+		}).start();;
+		
 	}
 	
 	private static void readInputJava(Process process, boolean mode) throws IOException {

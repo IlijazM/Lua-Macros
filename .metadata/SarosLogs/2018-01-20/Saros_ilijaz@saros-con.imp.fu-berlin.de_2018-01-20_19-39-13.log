@@ -45,3 +45,4 @@ stream:error (conflict) text: Replaced by new connection
 	at org.jivesoftware.smack.PacketReader.access$000(PacketReader.java:48)
 	at org.jivesoftware.smack.PacketReader$1.run(PacketReader.java:76)
 DEBUG 2018-01-20 19:43:22,943 (XMPPConnectionService.java:398)  new connection state == NOT_CONNECTED
+DEBUG 2018-01-20 22:25:40,525 (UPnPServiceImpl.java:295) deleting existing port mappings

@@ -1,0 +1,38 @@
+package macro;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+
+import main.KeyboardEvent;
+
+public class MacroEvents {
+	
+	public static Robot robot;
+	
+	public static void init() {
+		try {
+			robot = new Robot();
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void KeyPress(int keycode) {
+		KeyboardEvent.listen = false;
+		robot.keyPress(keycode);
+		KeyboardEvent.listen = true;
+	}
+	
+	public static void KeyRelease(int keycode) {
+		KeyboardEvent.listen = false;
+		robot.keyRelease(keycode);
+		KeyboardEvent.listen = true;
+	}
+	
+	public static void KeyType(int keycode) {
+		KeyboardEvent.listen = false;
+		robot.keyPress(keycode);
+		KeyboardEvent.listen = true;
+	}
+	
+}

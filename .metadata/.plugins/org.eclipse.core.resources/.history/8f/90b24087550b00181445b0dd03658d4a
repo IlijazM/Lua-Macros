@@ -1,0 +1,9 @@
+package lua;
+
+public class ReadInitFile {
+	
+	public static void read() {
+		
+	}
+	
+}

@@ -11,7 +11,6 @@ public class Macro {
 	
 	public static void init() {
 		macroPaths = new ArrayList<>();
-		macroPaths.add("SampleMacro.lua");
 		
 		try {
 			robot = new Robot();

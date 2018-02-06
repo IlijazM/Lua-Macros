@@ -1,0 +1,15 @@
+package main;
+
+import java.io.BufferedReader;
+
+public class ReadInitFile {
+	
+	public static void read(BufferedReader reader) {
+		String line = "";
+		
+		while ((line = reader.readLine()) != null) {
+			
+		}
+	}
+	
+}

@@ -1,9 +1,0 @@
-package task;
-
-public abstract class Task {
-	
-	public abstract String name();
-	
-	public abstract void execute(String[] args);
-	
-}

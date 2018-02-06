@@ -1,3 +1,3 @@
-if getKey(N) then
+if getKey(Q) then
 	KeyType(Q)
 end
