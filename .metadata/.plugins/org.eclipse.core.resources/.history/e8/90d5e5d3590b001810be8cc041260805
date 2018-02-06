@@ -1,0 +1,9 @@
+package macro;
+
+public class LuaMacro {
+	
+	public LuaMacro() {
+	}
+	
+	
+}

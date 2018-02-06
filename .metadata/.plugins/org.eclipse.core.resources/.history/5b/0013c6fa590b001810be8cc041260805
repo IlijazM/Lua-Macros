@@ -1,0 +1,20 @@
+package macro;
+
+public class LuaMacro {
+	
+	public String path;
+	
+	public String inputstring;
+	
+	public int keyCode;
+	
+	public LuaMacro() {
+	}
+	
+	public LuaMacro(String path) {
+	}
+	
+	public LuaMacro(String path, in keyCode) {
+	}
+	
+}

@@ -1,0 +1,15 @@
+package lua;
+
+class Init extends Lua {
+
+	@Override
+	public String GetLuaInterpreterFile() {
+	}
+
+	@Override
+	public void read(String line, boolean mode) {
+	}
+	
+	
+	
+}

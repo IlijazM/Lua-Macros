@@ -6,11 +6,11 @@ import java.util.ArrayList;
 
 public class Macro {
 	
-	public static ArrayList<String> macroPaths;
+	public static ArrayList<LuaMacro> luaMacros;
 	public static Robot robot;
 	
 	public static void init() {
-		macroPaths = new ArrayList<>();
+		luaMacros = new ArrayList<>();
 		
 		try {
 			robot = new Robot();

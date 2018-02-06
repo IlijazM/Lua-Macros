@@ -3,6 +3,7 @@ package main;
 import java.io.BufferedReader;
 import java.io.IOException;
 
+import macro.LuaMacro;
 import macro.Macro;
 
 public class ReadInitFile {
@@ -25,7 +26,7 @@ public class ReadInitFile {
 		
 		switch (string1) {
 		case "+":
-			Macro.macroPaths.add(string2);
+			Macro.luaMacros.add(new LuaMacro(string2));
 			break;
 		}
 	}

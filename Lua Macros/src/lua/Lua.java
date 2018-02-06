@@ -14,12 +14,59 @@ import me.bleuzen.javux.Script;
 import me.bleuzen.javux.ScriptInterpreter;
 import task.Task;
 
-public class Lua {
+public abstract class Lua {
 	
-	public static void runLua(String path, String inputstring) {
+	private static Lua hotkey;
+	private static Lua initLua;
+	
+	protected static int i;
+	
+	public static void init() {
+		hotkey = new Hotkey();
+		initLua = new InitLua();
+		
+		initAll();
+	}
+	
+	public static void initAll() {
+		for (i = 0; i < Macro.luaMacros.size(); i++) {
+			initLua.runLua(Macro.luaMacros.get(i).path, "");
+		}
+	}
+	
+	public static void runAll() {
+		runAll("");
+	}
+	
+	public static void runAll(String inputstring) {
+		KeyboardEvent.listen = false;
+		
+		for (i = 0; i < Macro.luaMacros.size(); i++) {
+			if (Macro.luaMacros.get(i).keyCode == 0 || KeyboardEvent.keyStatus[Macro.luaMacros.get(i).keyCode])
+			hotkey.runLua(Macro.luaMacros.get(i).path, inputstring);
+		}
+		
+		// enable listener
+		
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					Thread.sleep(10);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+				KeyboardEvent.listen = true;
+			}
+		}).start();;
+		
+	}
+	
+	public void runLua(String path, String inputstring) {
 		boolean fromKey = inputstring.isEmpty();
 		
-		String command = "lua Hotkey.lua \"" + path + "\" \"" + inputstring + "\" \"";
+		String command = "lua " + GetLuaInterpreterFile() + ".lua \"" + path + "\" \"" + inputstring + "\" \"";
 
 		for (int i = 0; i < KeyboardEvent.keyStatus.length; i++) {
 			if (KeyboardEvent.keyStatus[i]) {
@@ -58,35 +105,7 @@ public class Lua {
 		}
 	}
 	
-	public static void runAll() {
-		runAll("");
-	}
-	
-	public static void runAll(String inputstring) {
-		KeyboardEvent.listen = false;
-		
-		for (int i = 0; i < Macro.macroPaths.size(); i++) {
-			runLua(Macro.macroPaths.get(i), inputstring);
-		}
-		
-		// enable listener
-		
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					Thread.sleep(10);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				KeyboardEvent.listen = true;
-			}
-		}).start();;
-		
-	}
-	
-	private static void readInputJava(Process process, boolean mode) throws IOException {
+	private void readInputJava(Process process, boolean mode) throws IOException {
 		InputStream is = process.getInputStream();
 		InputStreamReader isr = new InputStreamReader(is);
 		BufferedReader br = new BufferedReader(isr);
@@ -94,11 +113,11 @@ public class Lua {
 		String line = null;
 
 		while ((line = br.readLine()) != null) {
-			Task.executeMatching(line, mode);
+			read(line, mode);
 		}
 	}
 
-	private static void readErrJava(Process process) throws IOException {
+	private void readErrJava(Process process) throws IOException {
 		InputStream is = process.getErrorStream();
 		InputStreamReader isr = new InputStreamReader(is);
 		BufferedReader br = new BufferedReader(isr);
@@ -110,15 +129,15 @@ public class Lua {
 		}
 	}
 
-	private static void readInputSH(String output, boolean mode) {
+	private void readInputSH(String output, boolean mode) {
 		String[] lines = output.split(System.lineSeparator());
 
 		for (String line : lines) {
-			Task.executeMatching(line, mode);
+			read(line, mode);
 		}
 	}
 
-	private static void readErrSH(String output) {
+	private void readErrSH(String output) {
 		String[] linesArray = output.split(System.lineSeparator());
 
 		ArrayList<String> lines = new ArrayList<>();
@@ -146,4 +165,7 @@ public class Lua {
 		System.err.print(error);
 	}
 	
+	public abstract String GetLuaInterpreterFile();
+	
+	public abstract void read(String line, boolean mode);
 }

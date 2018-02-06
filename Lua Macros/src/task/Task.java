@@ -10,6 +10,9 @@ public abstract class Task {
 		tasks = new ArrayList<>();
 		
 		tasks.add(new KeyType());
+		tasks.add(new KeyPress());
+		tasks.add(new KeyRelease());
+		tasks.add(new Print());
 	}
 	
 	public static void executeMatching(final String task, boolean fromKey) {

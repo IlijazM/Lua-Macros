@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import frame.Frame;
+import lua.Lua;
 import macro.Macro;
 import task.Task;
 
@@ -21,11 +22,13 @@ public class Init {
 		init();
 		
 		loadFiles();
+		Lua.initAll();
 	}
 	
 	public static void init() {
 		Macro.init();
 		Task.init();
+		Lua.init();
 		
 		// init keylisteners from jnativehook
 		

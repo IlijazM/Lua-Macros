@@ -1,0 +1,14 @@
+package macro;
+
+public class LuaMacro {
+	
+	public String path;
+	
+	public String inputstring;
+	
+	public int keyCode;
+	
+	public LuaMacro() {
+	}
+	
+}
