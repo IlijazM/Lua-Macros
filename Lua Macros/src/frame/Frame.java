@@ -9,14 +9,19 @@ public class Frame {
 	
 	public JFrame frame;
 	
+	public MainPanel mainPanel;
+	
 	public Frame(String title, int width, int height) {
-		this.frame = new JFrame(title);
+		frame = new JFrame(title);
 		
-		this.setBounds(width, height);
+		setBounds(width, height);
 		
-		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		this.frame.setVisible(true);
+		mainPanel = new MainPanel();
+		frame.setContentPane(mainPanel);
+		
+		frame.setVisible(true);
 	}
 	
 	private void setBounds(int width, int height) {
@@ -25,7 +30,7 @@ public class Frame {
 		int x = (int) ((screenSize.width - width)*0.5);
 		int y = (int) ((screenSize.height - height)*0.5);
 		
-		this.frame.setBounds(x, y, width, height);
+		frame.setBounds(x, y, width, height);
 	}
 	
 }

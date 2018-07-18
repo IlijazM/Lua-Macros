@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;keyTyped&apos; in &apos;macro.LuaMacro&apos; to &apos;keyCode&apos;&#x0D;&#x0A;- Original project: &apos;Lua Macros&apos;&#x0D;&#x0A;- Original element: &apos;macro.LuaMacro.keyTyped&apos;&#x0D;&#x0A;- Renamed element: &apos;macro.LuaMacro.keyCode&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;keyTyped&apos;" flags="589830" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;macro{LuaMacro.java[LuaMacro^keyTyped" name="keyCode" references="true" setter="false" stamp="1531939088929" textual="false" version="1.0"/>
+</session>

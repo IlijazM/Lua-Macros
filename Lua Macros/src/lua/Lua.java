@@ -43,7 +43,9 @@ public abstract class Lua {
 		
 		for (i = 0; i < Macro.luaMacros.size(); i++) {
 			if (Macro.luaMacros.get(i).keyCode == 0 || KeyboardEvent.keyStatus[Macro.luaMacros.get(i).keyCode])
-			hotkey.runLua(Macro.luaMacros.get(i).path, inputstring);
+			{
+				hotkey.runLua(Macro.luaMacros.get(i).path, inputstring);
+			}
 		}
 		
 		// enable listener

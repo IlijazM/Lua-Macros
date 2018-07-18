@@ -1,0 +1,28 @@
+package lua;
+
+import macro.Macro;
+
+class InitLua extends Lua {
+
+	@Override
+	public String GetLuaInterpreterFile() {
+		return "Init";
+	}
+
+	@Override
+	public void read(String line, boolean mode) {
+		String string1 = line.split(" ")[0];
+		String string2 = line.substring(string1.length() + 1);
+		
+		System.out.println("string1 = " + string1 + " at itaration " + Lua.iu);
+		
+		switch (string1) {
+		case "KeyTyped":
+			try {
+				Macro.luaMacros.get(Lua.i).keyTyped = Integer.parseInt(string2);
+			} catch (NumberFormatException e) { }
+			break;
+		}
+	}
+	
+}

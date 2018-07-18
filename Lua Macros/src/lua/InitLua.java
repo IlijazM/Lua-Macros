@@ -11,13 +11,14 @@ class InitLua extends Lua {
 
 	@Override
 	public void read(String line, boolean mode) {
-		String string1 = line.split(" ")[0];
-		String string2 = line.substring(string1.length() + 1);
+		String[] splitted = line.split(" ");
 		
-		switch (string1) {
+		System.out.println("string1 = \"" + splitted[0] + "\" at itaration " + Lua.i);
+		
+		switch (splitted[0]) {
 		case "Keycode":
 			try {
-				Macro.luaMacros.get(Lua.i).keyCode = Integer.parseInt(string2);
+				Macro.luaMacros.get(Lua.i).keyCode = Integer.parseInt(splitted[1]);
 			} catch (NumberFormatException e) { }
 			break;
 		}

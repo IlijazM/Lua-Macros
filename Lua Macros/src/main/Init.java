@@ -16,6 +16,7 @@ import task.Task;
 public class Init {
 	
 	private static BufferedReader initFileReader;
+	@SuppressWarnings("unused")
 	private static BufferedWriter initFileWriter;
 	
 	public static void initAll() {
@@ -23,6 +24,8 @@ public class Init {
 		
 		loadFiles();
 		Lua.initAll();
+		
+		initFrame();
 	}
 	
 	public static void init() {
@@ -33,8 +36,6 @@ public class Init {
 		// init keylisteners from jnativehook
 		
 		KeyboardEvent.init();
-		
-		initFrame();
 	}
 	
 	public static void initFrame() {
