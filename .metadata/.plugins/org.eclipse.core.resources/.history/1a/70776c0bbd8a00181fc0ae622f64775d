@@ -1,0 +1,30 @@
+package task;
+
+class Click extends Task {
+
+	@Override
+	public String name() {
+		return "Click";
+	}
+
+	@Override
+	public void execute(String[] args, boolean fromKey) {
+		int mouseButton = 0;
+		int x = 0;
+		int y = 0;
+		
+		try {
+			if (args.length == 1) {
+				mouseButton = Integer.parseInt(args[0]);
+			} else if (args.length == 2) {
+				mouseButton = Integer.parseInt(args[0]);
+				mouseButton = Integer.parseInt(args[0]);
+			} else if (args.length >= 3) {
+				mouseButton = Integer.parseInt(args[0]);
+			}
+		} catch (NumberFormatException e) {
+			// TODO: throw warn in extra console
+		}
+	}
+
+}

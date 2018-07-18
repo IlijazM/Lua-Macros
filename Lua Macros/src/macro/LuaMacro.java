@@ -1,0 +1,27 @@
+package macro;
+
+public class LuaMacro {
+	
+	public String path;
+	public int keyCode;
+	public String inputstring;
+	
+	public LuaMacro() {
+	}
+	
+	public LuaMacro(String path) {
+		this.path = path;
+	}
+	
+	public LuaMacro(String path, int keyCode) {
+		this.path = path;
+		this.keyCode = keyCode;
+	}
+	
+	public LuaMacro(String path, int keyCode, String inputstring) {
+		this.path = path;
+		this.keyCode = keyCode;
+		this.inputstring = inputstring;
+	}
+	
+}

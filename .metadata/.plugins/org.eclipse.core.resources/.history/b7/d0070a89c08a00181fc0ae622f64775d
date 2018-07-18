@@ -1,0 +1,29 @@
+package task;
+
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+
+import macro.Macro;
+
+class Write extends Task {
+
+	@Override
+	public String name() {
+		return "Write";
+	}
+
+	@Override
+	public void execute(String[] args, boolean fromKey) {
+		StringSelection stringSelection = new StringSelection(string);
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		clipboard.setContents(stringSelection, stringSelection); // TODO: reset clipboard
+
+		Macro.Macro.robot.keyPress(KeyEvent.VK_CONTROL);
+		Macro.robot.keyPress(KeyEvent.VK_V);
+		Macro.robot.keyRelease(KeyEvent.VK_V);
+		Macro.robot.keyRelease(KeyEvent.VK_CONTROL);
+	}
+
+}

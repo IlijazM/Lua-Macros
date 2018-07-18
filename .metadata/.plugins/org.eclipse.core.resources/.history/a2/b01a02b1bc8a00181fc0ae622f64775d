@@ -1,0 +1,17 @@
+package task;
+
+class Click extends Task {
+
+	@Override
+	public String name() {
+		return "Click";
+	}
+
+	@Override
+	public void execute(String[] args, boolean fromKey) {
+		if (args.length == 1) {
+			
+		}
+	}
+
+}
