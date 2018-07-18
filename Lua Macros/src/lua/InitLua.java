@@ -13,8 +13,6 @@ class InitLua extends Lua {
 	public void read(String line, boolean mode) {
 		String[] splitted = line.split(" ");
 		
-		System.out.println("string1 = \"" + splitted[0] + "\" at itaration " + Lua.i);
-		
 		switch (splitted[0]) {
 		case "Keycode":
 			try {

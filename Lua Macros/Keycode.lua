@@ -5,6 +5,7 @@ SPACE = 32
 RETURN = 10
 SHIFT = 16
 CONTROL = 17
+DELETE = 8
 ALT = 18
 _0 = 48
 _1 = 49

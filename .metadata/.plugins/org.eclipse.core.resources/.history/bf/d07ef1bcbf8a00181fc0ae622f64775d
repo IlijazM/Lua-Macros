@@ -1,0 +1,38 @@
+package task;
+
+import macro.Macro;
+import main.KeyboardEvent;
+
+class Click extends Task {
+
+	@Override
+	public String name() {
+		return "Click";
+	}
+
+	@Override
+	public void execute(String[] args, boolean fromKey) {
+		int mouseButton = 16;
+		int x = KeyboardEvent.mouseX;
+		int y = KeyboardEvent.mouseY;
+		
+		try {
+			if (args.length == 1) {
+				mouseButton = Integer.parseInt(args[0]);
+			} else if (args.length == 2) {
+				x = Integer.parseInt(args[0]);
+				y = Integer.parseInt(args[1]);
+			} else if (args.length >= 3) {
+				mouseButton = Integer.parseInt(args[0]);
+				x = Integer.parseInt(args[1]);
+				y = Integer.parseInt(args[2]);
+			}
+			
+			Macro.robot.mouseMove(x, y);
+			Macro.robot.mousePress(mouseButton);
+		} catch (NumberFormatException e) {
+			// TODO: throw warn in extra console
+		}
+	}
+
+}

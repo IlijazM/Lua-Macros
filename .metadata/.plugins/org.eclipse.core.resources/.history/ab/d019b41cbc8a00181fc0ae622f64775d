@@ -1,0 +1,19 @@
+package task;
+
+import macro.Macro;
+
+class LeftClick extends Task {
+
+	@Override
+	public String name() {
+		return "LeftClick";
+	}
+
+	@Override
+	public void execute(String[] args, boolean fromKey) {
+		System.out.println("run");
+		Macro.robot.mousePress(16);
+		Macro.robot.mousePress(16);
+	}
+
+}

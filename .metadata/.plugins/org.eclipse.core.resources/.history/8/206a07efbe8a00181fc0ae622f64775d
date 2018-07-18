@@ -1,0 +1,19 @@
+package task;
+
+class Wait extends Task {
+
+	@Override
+	public String name() {
+		return "Wait";
+	}
+
+	@Override
+	public void execute(String[] args, boolean fromKey) {
+		if (args.length >= 1) {
+			if (args[0] == "Long") {
+				
+			}
+		}
+	}
+
+}

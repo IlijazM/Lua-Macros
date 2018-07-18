@@ -1,0 +1,15 @@
+package task;
+
+class LeftClick extends Task {
+
+	@Override
+	public String name() {
+		return null;
+	}
+
+	@Override
+	public void execute(String[] args, boolean fromKey) {
+		
+	}
+
+}

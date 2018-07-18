@@ -1,6 +1,8 @@
 package task;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 
 public abstract class Task {
 	
@@ -9,10 +11,15 @@ public abstract class Task {
 	public static void init() {
 		tasks = new ArrayList<>();
 		
+		tasks.add(new Print());
 		tasks.add(new KeyType());
 		tasks.add(new KeyPress());
 		tasks.add(new KeyRelease());
-		tasks.add(new Print());
+		tasks.add(new LeftClick());
+		tasks.add(new RightClick());
+		tasks.add(new Click());
+		tasks.add(new Write());
+		tasks.add(new Wait());
 	}
 	
 	public static void executeMatching(final String task, boolean fromKey) {
@@ -29,8 +36,12 @@ public abstract class Task {
 	
 	public void execute(String task, boolean fromKey) {
 		task = task.substring(task.indexOf(' ') + 1);
-		
-		execute(task.split(" "), fromKey);
+
+		if (task.startsWith("\"")) {
+			execute(new String[] { task.substring(1) }, fromKey);
+		} else {
+			execute(task.split(" "), fromKey);
+		}
 	}
 	
 	public abstract String name();

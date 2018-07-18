@@ -1,0 +1,5 @@
+package task;
+
+class Click extends Task {
+
+}

@@ -52,6 +52,10 @@ function Click(a, b, c)
 	end
 end
 
+function MoveMouse(x, y)
+	Click(0, x, y)
+end
+
 function WaitDef()
 	-- sleep(0.01)
 	print ("Wait")
@@ -98,7 +102,7 @@ function Focus()
 end
 
 function Write(str)
-	print("Write \"" .. str .. "\"")
+	print("Write \"" .. str)
 end
 
 function DisableMacros()

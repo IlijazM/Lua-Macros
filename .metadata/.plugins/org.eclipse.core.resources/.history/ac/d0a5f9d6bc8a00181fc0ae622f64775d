@@ -1,0 +1,21 @@
+package task;
+
+class Click extends Task {
+
+	@Override
+	public String name() {
+		return "Click";
+	}
+
+	@Override
+	public void execute(String[] args, boolean fromKey) {
+		int mouseButton = 0;
+		int x = 0;
+		int y = 0;
+		
+		if (args.length == 1) {
+			
+		}
+	}
+
+}
