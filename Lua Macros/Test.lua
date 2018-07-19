@@ -1,14 +1,8 @@
 function Init()
-	KeyCode(U)
+	KeyCode(Q)
+	KeyCode(CONTROL)
 end
 
 function Hotkey()
-	KeyPress(DELETE)
-	
-	for i = 1, 10 do
-		Wait()
-		Write("Was laberscht du?")
-		WaitLong()
-		KeyPress(RETURN)
-	end
+	Write("meow")
 end

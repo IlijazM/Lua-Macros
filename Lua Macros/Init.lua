@@ -8,6 +8,18 @@ function KeyCode(i)
 	print("Keycode " .. i)
 end
 
+function Control()
+	KeyCode(CONTROL)
+end
+
+function Shift()
+	KeyCode(SHIFT)
+end
+
+function Alt()
+	KeyCode(ALT)
+end
+
 -- override
 function Init() end
 

@@ -3,5 +3,5 @@ function Init()
 end
 
 function Hotkey()
-	Print("Q pressed!")
+	-- Print("Q pressed!")
 end

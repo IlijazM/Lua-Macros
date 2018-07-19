@@ -16,7 +16,7 @@ class InitLua extends Lua {
 		switch (splitted[0]) {
 		case "Keycode":
 			try {
-				Macro.luaMacros.get(Lua.i).keyCode = Integer.parseInt(splitted[1]);
+				Macro.luaMacros.get(Lua.i).keyCode.add(Integer.parseInt(splitted[1]));
 			} catch (NumberFormatException e) { }
 			break;
 		}

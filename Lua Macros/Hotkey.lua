@@ -34,6 +34,9 @@ function keychanged()
 
 end
 
+-- override
+function Init() end
+
 function LeftClick()
 	print "LeftClick"
 end
@@ -95,6 +98,14 @@ function KeyRelease(k)
 	if k ~= nil then
 		print("KeyRelease " .. tostring(k))
 	end
+end
+
+function AutoRelease()
+	function KeyCode(k)
+		KeyRelease(k)
+	end
+	
+	Init()
 end
 
 function Focus()

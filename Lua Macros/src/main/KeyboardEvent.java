@@ -50,7 +50,7 @@ public class KeyboardEvent extends AbstractSwingInputAdapter implements NativeKe
 			return;
 		
 		KeyEvent keyEvent = getJavaKeyEvent(key);
-		// Macro.Log(key.getKeyCode());
+		// System.out.println("press:   " + key.getKeyCode());
 		
 		keyStatus[keyEvent.getKeyCode()] = true;
 		
@@ -61,7 +61,13 @@ public class KeyboardEvent extends AbstractSwingInputAdapter implements NativeKe
 	public void nativeKeyReleased(NativeKeyEvent key) {
 		KeyEvent keyEvent = getJavaKeyEvent(key);
 		
-		keyStatus[keyEvent.getKeyCode()] = false;
+		// System.out.println("release: " + key.getKeyCode());
+		
+		try {
+			keyStatus[keyEvent.getKeyCode()] = false;
+		} catch (IndexOutOfBoundsException e) {
+			
+		}
 	}
 
 	@Override

@@ -1,0 +1,5 @@
+package task;
+
+class AutoRelease extends Task {
+
+}

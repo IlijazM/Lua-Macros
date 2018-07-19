@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import macro.LuaMacro;
 import macro.Macro;
 import main.KeyboardEvent;
 import me.bleuzen.javux.Javux;
@@ -42,9 +43,24 @@ public abstract class Lua {
 		KeyboardEvent.listen = false;
 		
 		for (i = 0; i < Macro.luaMacros.size(); i++) {
-			if (Macro.luaMacros.get(i).keyCode == 0 || KeyboardEvent.keyStatus[Macro.luaMacros.get(i).keyCode])
+			LuaMacro luaMacro = Macro.luaMacros.get(i);
+			
+			if (luaMacro.keyCode.size() == 0)
 			{
 				hotkey.runLua(Macro.luaMacros.get(i).path, inputstring);
+			} else {
+				boolean b = true;
+				
+				for (int i = 0; i < luaMacro.keyCode.size(); i++) {
+					if (!KeyboardEvent.keyStatus[luaMacro.keyCode.get(i)]) {
+						b = false;
+						break;
+					}
+				}
+				
+				if (b) {
+					hotkey.runLua(Macro.luaMacros.get(i).path, inputstring);
+				}
 			}
 		}
 		

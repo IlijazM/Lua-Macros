@@ -1,0 +1,25 @@
+package lua;
+
+import macro.Macro;
+
+class InitLua extends Lua {
+
+	@Override
+	public String GetLuaInterpreterFile() {
+		return "Init";
+	}
+
+	@Override
+	public void read(String line, boolean mode) {
+		String[] splitted = line.split(" ");
+		
+		switch (splitted[0]) {
+		case "Keycode":
+			try {
+				Macro.luaMacros.get(Lua.i).keyCode = Integer.parseInt(splitted[1]);
+			} catch (NumberFormatException e) { }
+			break;
+		}
+	}
+	
+}
